@@ -56,5 +56,10 @@ Mas ao rodar, da erro! Porque o package.json, por algum motivo, estava configura
 DICA: No vs code clicar no "espaço vazio" no terminal com o botão direito do mouse e abre menu com Panel Position e pode posicionar o termina na lateral.
 
 
+## Git
 
+git log --stat 
+git log --oneline
+
+Git commits são imutáveis! Um git commit --amend, por exemplo, na verdade cria um novo commit (novo hash) e "viaja no tempo" adicionando no lugar do anterior.
 
