@@ -63,3 +63,81 @@ git log --oneline
 
 Git commits são imutáveis! Um git commit --amend, por exemplo, na verdade cria um novo commit (novo hash) e "viaja no tempo" adicionando no lugar do anterior.
 
+
+### Inclusão e exclusão de arquivos no Git
+
+* `git add .` **inclui apenas arquivos novos e modificados**
+  ❌ **não inclui arquivos excluídos**
+
+* Para incluir **arquivos excluídos**, é necessário:
+
+  * `git add -u` → (*update*: arquivos modificados **ou removidos*)
+  * ou `git add -A` → (*all*: novos, modificados **e removidos*)
+
+---
+
+### Exclusão de diretórios
+
+#### Usando `rm` do sistema
+
+Ao excluir um diretório manualmente, é necessário atualizar o índice do Git:
+
+```bash
+rm -rf dir/
+git add -u
+git commit -m "Remove dir"
+```
+
+É necessário usar a flag `-u` ou `-A`, ou a exclusão **não entra no commit**.
+
+---
+
+#### Usando `git rm` (recomendado)
+
+```bash
+git rm -r dir/
+git commit -m "Remove dir"
+```
+
+* Remove o diretório do **working directory**
+* Remove do **controle de versão**
+* Já adiciona a remoção à *staged area*
+
+---
+
+### Remover do repositório, mas manter localmente
+
+Para remover o diretório **apenas do Git**, mantendo-o no *working directory*:
+
+```bash
+git rm -r --cached dir/
+git commit -m "Remove dir do versionamento"
+```
+
+---
+
+### Caso de uso comum
+
+Um diretório de trabalho de framework (ex: `.next/`) foi:
+
+1. Commitado por engano
+2. Enviado para o `origin`
+3. Adicionado posteriormente ao `.gitignore`
+
+Nesse cenário:
+
+* O `.gitignore` impede **novos rastreamentos**
+* Mas o diretório **continua existindo no repositório remoto**
+
+✅ Solução correta:
+
+```bash
+git rm -r --cached .next/
+git commit -m "Remove .next do versionamento"
+```
+
+Resultado:
+
+* O diretório some do repositório
+* Continua existindo localmente
+* Passa a ser ignorado pelo Git
