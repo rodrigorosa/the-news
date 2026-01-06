@@ -141,3 +141,11 @@ Resultado:
 * O diretório some do repositório
 * Continua existindo localmente
 * Passa a ser ignorado pelo Git
+
+## Client/Server, hospedagem e Continuos Integration
+### Hospedagem de Sites - Vercel
+- Acessa o site da vercel e faz login com github
+- Depois de logado vai em Add / New Project / Import Github Repository
+- É possível dar acesso a toda a conta ou somente a um repositório, optei por este último (Principle of Least Privilege/Princípio do Menor Privilégio)
+- É necessário dar as devidas permissões
+- E depois basta clicar em efetuar deploy
