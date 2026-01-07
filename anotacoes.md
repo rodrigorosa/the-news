@@ -163,3 +163,37 @@ Na já no modo Impressora 3D busca-se entregar todas as funcionalidades do progr
 
 O modelo Impressora 3D acaba travando a gente em muitos casos, enquanto desenvolver de forma orgânica é uma experiência bem menos estressante e ajuda a destravar o desenvolvimento dos projetos, dando um passo de cada vez.
 
+## Moral x Prática 
+O lixo de um homem é o tesouro de outro.
+
+## Organização de Tarefas
+- Fazer muito com pouco!
+- Cérebro calcula o saldo
+
+### Nivel 1: Ser lembrado individualmente (o que precisa fazer)
+- Menor custo de produção possível
+- Menor tempo de aquecimento possível
+- Exemplo: todo list 
+
+
+### Nível 2: Ser lembrado em grupo 
+- kanban
+- visível para todos
+- marcar o progresso
+
+### Nível 3: Expandir conhecimnento
+- Desenvolver de forma detalhada o que e como deve ser feito
+- Trello, Github 
+
+### Nìvel 4: Gerar métricas 
+- Jira
+
+
+## Github Issues 
+- Issue de Inception
+- Quebrar em pedaçoes menores: Issues / Milestones 
+
+### Estágios da dopamina
+- Estágio 1 - Início
+- Estágio 2 - Progresso
+- Estágio 3 - Conclusão
