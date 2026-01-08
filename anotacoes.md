@@ -197,3 +197,25 @@ O lixo de um homem é o tesouro de outro.
 - Estágio 1 - Início
 - Estágio 2 - Progresso
 - Estágio 3 - Conclusão
+
+## Estilização de Código e Configuração do Editor
+
+Issue: Definir estilização do código e configurar editor 
+
+Editar e adicionar "tarefas" no formato md:
+
+- [ ] Ligar sincronização do editor
+- [ ] Configurar o EditorConfig
+- [ ] Configurar o Prettier 
+
+Ou seja: Milestone > Issue > Tarefas
+
+Então, vamos começar com a issue:
+- Ligar sincronização do editor 
+
+E aqui estamos nos referindo ao CodeSpaces do GH usando Settings Sync. Para isso no Code Spaces:
+- Clicar no botão Perfil (Pessoa) no lado equerdo embaixo e selecionar a opção Configurações de Backup e Sincronização e confirmar.
+- Concluir a tarefa da issue!
+
+
+ 
