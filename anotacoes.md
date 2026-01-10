@@ -269,3 +269,5 @@ Criamos o arquivo e adicionamos o conteúdo na mesma sintaxe que o arquivo .giti
 ```
 .next/
 ```
+
+PS: O prettier a partir da versão 3.0.0 mudou o seu comportamento e por padrão está utilizando o conteúdo dentro .gitignore para também ignorar o linting de estilização 🎉 Isto foi anunciado neste comunicado. Ou seja, só precisamos de um prettierignore para ignorar algo que não está no gitignore. 🫶
