@@ -210,12 +210,20 @@ Editar e adicionar "tarefas" no formato md:
 
 Ou seja: Milestone > Issue > Tarefas
 
-Então, vamos começar com a issue:
-- Ligar sincronização do editor 
+### Ligar sincronização do editor 
 
 E aqui estamos nos referindo ao CodeSpaces do GH usando Settings Sync. Para isso no Code Spaces:
 - Clicar no botão Perfil (Pessoa) no lado equerdo embaixo e selecionar a opção Configurações de Backup e Sincronização e confirmar.
 - Concluir a tarefa da issue!
 
 
- 
+ ### Configurar o Editor Config
+
+ - Através do arquivo .editorconfig
+ - Alguns editores, entre eles o VS Code, já tem suporte nativo a Editor Config, outros precisa instalar/configurar
+    Quando existe conflito entre:
+    settings.json do VS Code
+    .editorconfig
+     👉 o .editorconfig tem prioridade para os arquivos que ele cobre.
+ - No CodeSpaces vamos criar o arquivo .editorconfig no raiz do projeto
+  
