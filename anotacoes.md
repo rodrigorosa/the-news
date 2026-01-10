@@ -261,3 +261,11 @@ Em Editor Formatter selecionar o Prettier
 Depois procurar por "format on save" e habilitar
 
 Depois procurar por "auto save" e setar para off (acho que é o default)
+
+PS: também é possível adicionar o arquivo `prettierignore` à raiz do projeto para ignorar aquivos e pastas que não queremos que sejam analisados, tal como faz o arquivo `.gitignore`. Inclusive, na documetação do prettier diz que algumas pastas, como node_modules e o arquivo .gitignore já são ignorados por padrão. No nosso caso queremos ignorar a pasta .next que é gerada automaticamente ao executar e não temos interesse.
+
+Criamos o arquivo e adicionamos o conteúdo na mesma sintaxe que o arquivo .gitignore:
+
+```
+.next/
+```
