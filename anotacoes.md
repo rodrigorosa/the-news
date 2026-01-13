@@ -216,6 +216,31 @@ Editar e adicionar "tarefas" no formato md:
 
 Ou seja: Milestone > Issue > Tarefas
 
+🔗 Relação entre eles
+
+- Uma Issue é uma unidade de trabalho (Executar algo concreto)
+  - pode pertencer a 1 Milestone
+  - pode ter 0 ou várias Sub-issues
+
+- Uma Sub-issue é uma issue ligada a outra issue (Quebrar tarefas grandes)
+  - é apenas uma Issue com vínculo hierárquico
+
+- Um Milestone é um agrupador de Issues no tempo (Planejar Entregas, versões ou sprints)
+  - agrupa muitas Issues (pais ou filhas)
+
+📌 Exemplo realista (projeto de software)
+
+- Milestone: Release v1.0
+  - Issue: Autenticação
+    - Sub-issue: Criar JWT
+    - Sub-issue: Endpoint de login
+  - Issue: Cadastro de usuários
+    - Sub-issue: Model
+    - Sub-issue: Validações
+  - Issue: Infraestrutura
+    - Sub-issue: Docker
+    - Sub-issue: CI/CD
+
 ### Ligar sincronização do editor
 
 E aqui estamos nos referindo ao CodeSpaces do GH usando Settings Sync. Para isso no Code Spaces:
