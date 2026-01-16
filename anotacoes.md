@@ -306,3 +306,11 @@ Uma ideia inútil para deslanchar as ideias boas!
 SLA: Service Level Agreement, define o UpTime esperado: 99,9%
 
 Ex: vercel status
+
+## Resolução de DNS
+
+Computador > [Recursive Resolver] > [Root Server A] > [TDL .br] > [Authoritative Server]
+
+// TLD - Top Level Domain (br por exemplo)
+// Authoritavie Server possui os DNS Records (A, CName, TXT)
+// TTL - Time to Live (cache)
