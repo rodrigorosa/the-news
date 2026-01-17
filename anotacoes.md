@@ -314,3 +314,5 @@ Computador > [Recursive Resolver] > [Root Server A] > [TDL .br] > [Authoritative
 // TLD - Top Level Domain (br por exemplo)
 // Authoritavie Server possui os DNS Records (A, CName, TXT)
 // TTL - Time to Live (cache)
+
+## Registrar dominio br e Configurar DNS
