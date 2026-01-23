@@ -324,6 +324,20 @@ No Registro.br, o NS (Nameserver) ou authoritative server é chamado simplesment
 ## Milestone 1 - Fundação
 
 - Propostas de Arquitetura e Pastas
+  📦root/
+  ├──📂pages/
+  │ └──📄index.js
+  ├──📂models/
+  │ ├──📄users.js
+  │ ├──📄content.js
+  │ └──📄password.js
+  ├──📂infra/
+  │ ├──📄database.js
+  │ ├──📂migrations/
+  │ └──📂provisioning/
+  │ ├──📂staging/
+  │ └──📂production/
+  └──📂tests/
 - Testes Automatizados
 - Banco de dados (Local)
 - Migrations
