@@ -316,3 +316,19 @@ Computador > [Recursive Resolver] > [Root Server A] > [TDL .br] > [Authoritative
 // TTL - Time to Live (cache)
 
 ## Registrar dominio br e Configurar DNS
+
+Ao registrar o domínio no registro.br precisamos apontar o Authoritative Server, ou seja, quem vai resolver efetivamente o nome para o IP.
+
+No Registro.br, o NS (Nameserver) ou authoritative server é chamado simplesmente de Servidores DNS ou, mais especificamente, divididos em Master (Primário) e Slave (Secundário). Ao configurar um domínio, o painel do Registro.br solicita o preenchimento de pelo menos dois servidores DNS para garantir a autoridade sobre o domínio (ex: ns1.provedor.com.br e ns2.provedor.com.br). Aqui poderia ser o NS da Vercel, por exemplo.
+
+## Milestone 1 - Fundação
+
+- Propostas de Arquitetura e Pastas
+- Testes Automatizados
+- Banco de dados (Local)
+- Migrations
+- Continuous Integration
+- Linter de código
+- Linter de commits
+- Banco de dados (Homologação e Produção)
+- Tipo de Licença
