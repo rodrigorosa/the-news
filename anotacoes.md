@@ -346,3 +346,18 @@ No Registro.br, o NS (Nameserver) ou authoritative server é chamado simplesment
 - Linter de commits
 - Banco de dados (Homologação e Produção)
 - Tipo de Licença
+
+## Testes automatizados
+
+### Instalar Test Runner (Jest)
+
+```
+npm install --save-dev jest@29.6.2
+```
+
+E adicionar o script
+
+```
+"test": "jest",
+"test:watch": "jest --watch"
+```
