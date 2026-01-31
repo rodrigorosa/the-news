@@ -361,3 +361,59 @@ E adicionar o script
 "test": "jest",
 "test:watch": "jest --watch"
 ```
+
+- Criar um diretório tests
+- Criar o arquivo tests/calculadora.test.js
+
+- Dica dos comentários, instalar esse pacote para o IntelliSense nos ajudar com code complete e doc
+
+```
+npm install --save-dev @types/jest
+```
+
+### Criar teste (calculadora)
+
+### Testes? Unit x Integration (service) x E2E (UI)
+
+### Criar o endpoint `/status`
+
+Dentro do projeto, na pasta pages criar sub-pasta api e um arquivo status.js
+`pages/api/status.js`
+
+Com o conteúdo
+
+```
+function status(request, response) {
+  response.status(200).send("Tudo parece bem!");
+}
+
+export default status
+```
+
+O que pode ser acessado na url http://localhost:3000/api/status
+
+Note que aqui o json() assume o charset utf-8, o que pode ser comprovado usando curl
+
+```➜ the-news git:(main) ✗ curl localhost:3000/api/status --verbose
+* Host localhost:3000 was resolved.
+* IPv6: ::1
+* IPv4: 127.0.0.1
+*   Trying [::1]:3000...
+* Connected to localhost (::1) port 3000
+> GET /api/status HTTP/1.1
+> Host: localhost:3000
+> User-Agent: curl/8.5.0
+> Accept: */*
+>
+< HTTP/1.1 200 OK
+< Content-Type: application/json; charset=utf-8
+< ETag: "mtcwvrbq7nv"
+< Content-Length: 31
+< Vary: Accept-Encoding
+< Date: Wed, 28 Jan 2026 00:57:46 GMT
+< Connection: keep-alive
+< Keep-Alive: timeout=5
+<
+* Connection #0 to host localhost left intact
+{"mensagem":"Tudo parece bem!"}%
+```
