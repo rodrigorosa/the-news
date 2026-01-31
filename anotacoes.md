@@ -417,3 +417,79 @@ Note que aqui o json() assume o charset utf-8, o que pode ser comprovado usando 
 * Connection #0 to host localhost left intact
 {"mensagem":"Tudo parece bem!"}%
 ```
+
+## Banco de dados (local)
+
+### Escolhas
+
+- DBMS (Database Management System): Postgres
+- Query - módulo pg (sem ORM, que poderia ser o sequelize ou o drizzle)
+- Migrations - módulo node-pg-migrate
+
+### Docker e containers
+
+- Instalação direto na máquina, depende de:
+  - Hardware
+  - Sistema operacional
+  - Patches de segurança
+  - Softwares satélites (anti-vírus, firewall)
+  - Linguagem do SO
+  - Timezone
+- Máquina Virtual (Virtual Box da Oracle) - 2007
+  - Ainda precisa definir configuração, instalaçao
+- Vagrant(Hashicorp) - 2010
+  - Melhora o setup inicial, mas ainda tem o problema de usar muito espaço e processamento
+- Docker (containers)
+  - Namespaces: gera uma área isolada, processos ali dentro só enxergam eles mesmo (2002)
+  - CGroups: controle granular sobre a alocação de recursos no sistema (limitar memória e processamento) (2007)
+  - PID Namespaces
+  - Com o tempo novos recursos foram adicionados o tornando padrão de mercado e tendo uma adoção muito rápida
+
+  ### Subir o banco local usando docker
+  - Criar na raiz do projeto o arquivo `compose.yaml` (versão moderna do docker-compose.yml)
+
+    ```
+    services:
+      database:
+        image: "postgres:16.0-alpine3.18"
+        environment:
+          POSTGRES_PASSWORD: "local_password"
+        ports:
+          - "5432:5432"
+
+    ```
+
+`docker compose up -d`
+`docker ps (process list)`
+`docker ps -a // lista todos e mostra o último Exit Code`
+
+Exit Codes
+
+- 0 Tudo bem
+- > 0 Erro
+
+`docker logs container_name`
+
+Agora instalamos o client `psql` do postgres no linux
+
+```
+sudo apt update
+sudo apt install postgresql-client
+```
+
+E vamos testar a conexão
+
+`psql --host=localhost --username=postgres --port=5432`
+
+PS: se for alterada alguma config no compose file pode ser necessário recriar o container com
+
+`docker compose up -d --force-recreate` (equivalente a down && up)
+
+PS2: para sair do psql é necessário usar o comando `\q`
+
+`docker compose down` para destruir o container
+
+Mas antes de finalizar vamos criar uma pasta `infra` e mover o compose.yaml para lá.
+Porém para executar o docker compose a partir do raiz se torna necessário informar o lugar do arquivo.
+
+`docker compose -f infra/compose.yaml up -d`
