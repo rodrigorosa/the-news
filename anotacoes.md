@@ -494,4 +494,23 @@ Porém para executar o docker compose a partir do raiz se torna necessário info
 
 `docker compose -f infra/compose.yaml up -d`
 
-##
+## Criar módulo `database.js`
+
+Começamos instalando o módulo `pg` usado para conversar com o postgres programaticamente
+
+`npm install pg@8.11.3`
+
+Então adicionamos mais um script ao package.json, o `jest watch` observa somente os arquivos alterados e agora queremos observar todos, então adicionei a linha
+
+`"test:watchAll": "jest --watchAll"`
+
+Que na verdade é um pouco diferente do que o Filipe faz, ele somente alterou o `test:watch` mas eu prefiro ter os dois.
+Detalhe que ainda vai falhar porque um dos testes de integração executa um fetch, então é necessário ter um `npm run dev` rodando em outro terminal, certamente ajustaremos isso futuramente.
+
+E agora bora subir o banco de dados dockerizado apontando para o nosso arquivo compose com:
+
+`docker compose -f infra/compose.yaml up -d`
+
+Adicionamos então o código em `infra/database.js` e o seu uso em `page/api/v1/status/index.js` e com a ajuda dos testes vamos ajustando até funcionar. Nessa versão ainda usamos as infos de banco hardcoded.
+
+### Variáveis de ambiente
