@@ -493,3 +493,5 @@ Mas antes de finalizar vamos criar uma pasta `infra` e mover o compose.yaml para
 Porém para executar o docker compose a partir do raiz se torna necessário informar o lugar do arquivo.
 
 `docker compose -f infra/compose.yaml up -d`
+
+##
