@@ -514,3 +514,66 @@ E agora bora subir o banco de dados dockerizado apontando para o nosso arquivo c
 Adicionamos então o código em `infra/database.js` e o seu uso em `page/api/v1/status/index.js` e com a ajuda dos testes vamos ajustando até funcionar. Nessa versão ainda usamos as infos de banco hardcoded.
 
 ### Variáveis de ambiente
+
+um processo herda as variáveis de ambiente do seu processo pai.
+No caso, o nosso servidor roda um processo node que é filho do terminal e no terminal já existem as vars de ambiente que podem ser lidas com o comando `env`
+
+É curioso que aqui citamos o `processo` e as `env` e é justamente assim que acessamos as variáveis de ambiente: `process.env.NOME_VAR`
+
+Para demonstrar isso vamos alterar o módulo database.js e e ao invés de usar o valor da `password` hardcoded, vamos usar uma var de ambiente
+
+```
+  const client = new Client({
+    host: "localhost",
+    port: 5432,
+    user: "postgres",
+    password: process.env.POSTGRES_PASSWORD,
+    database: "postgres",
+  });
+```
+
+E vamos definir essa var de ambiente ao executar o servidor assim:
+
+`POSTGRES_PASSWORD=local_password npm run dev`
+
+Isso define o valor somente para essa execução
+
+OBS: se digitar isso no terminal vai ficar a senha no history! Porém, existe um trick para isso não acontecer, basta adicionar um ESPAÇO EM BRANCO no início do comando e ele não será gravado ho histórico!
+
+Mas ao invés de ficar declarando no terminal o melhor mesmo é usar o módulo `dotenv`.
+Via de regra seria necessário instalar, mas o next.js já vem com o módulo pré-instalado, então basta criar o arquivo `.env`e adicionar as vars.
+
+`POSTGRES_PASSWORD=local_password`
+
+E pronto, rodar novamente e vai passar! Ok, vamos fazer para todas as vars!
+
+E agora vamos fazer o `docker compose` usar o arquivo `.env` para inicializar o valor da senha do banco da mesma forma.
+
+Para isso vamos substituir o bloco que define a var dentro do `compose.yaml`
+
+```environment:
+      POSTGRES_PASSWORD: "local_password"
+```
+
+E, ao invés disso, declarar o arquivo `.env`
+
+```
+    env_file:
+      - ../.env
+```
+
+Mas agora vamos ajustar os nomes de user e db para usar o prefixo `local_`
+
+```
+POSTGRES_HOST=localhost
+POSTGRES_PORT=5432
+POSTGRES_USER=local_user
+POSTGRES_PASSWORD=local_password
+POSTGRES_DB=local_db
+```
+
+Mas isso só é executado ao criar o container, então precisamos parar o container do banco e subir novamente, tanto o container quando o server
+
+`docker compose -f infra/compose.yaml down && docker compose -f infra/compose.yaml up -d`
+
+`npm run dev`
