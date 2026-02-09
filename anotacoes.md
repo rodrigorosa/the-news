@@ -589,3 +589,13 @@ Então, vamos renomear o arquivo commitado usando `git mv`
 `git mv .env .env.development`
 
 e renomear no meu `compose.yaml`
+
+Obs: Na maioria dos casos, `git mv` é só um atalho conveniente para dois comandos:
+
+```
+mv arquivo_antigo arquivo_novo
+git add arquivo_novo
+git rm arquivo_antigo
+```
+
+### Root Path
