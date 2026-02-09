@@ -598,4 +598,26 @@ git add arquivo_novo
 git rm arquivo_antigo
 ```
 
-### Root Path
+### Root Path (caminho raiz)
+
+Node.js não sabe ou não se importa muito com a pasta onde está sendo rodado, pra ele é um script que importa outra e assim vai.
+Mas isso nos causa problemas, porque a importação é sempre relativa ao arquivo atual e as vezes precisamos fazer aquelas aberrações
+
+`import database from "../../../../infra/database.js";`
+
+Então, como fazer para definir um `rooth path` e fazer importação absoluta ao invés de relativa?
+
+No VSCode a MS padronizou a utilização do arquivo `jsconfig.json` (ou `tsconfig.json` para TS) como arquivo de configuração.
+"The presence of `jsconfig.json` file in a directory indicates that the directory is the root of a Javascript Project."
+
+E, segundo a doc, o next.js respeita isso.
+
+Então criamos na raiz do projeto o arquivo `jsconfig.json` com o conteúdo:
+
+```
+{
+  "compilerOptions": {
+    "baseUrl": "."
+  }
+}
+```
