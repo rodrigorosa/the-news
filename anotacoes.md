@@ -577,3 +577,15 @@ Mas isso só é executado ao criar o container, então precisamos parar o contai
 `docker compose -f infra/compose.yaml down && docker compose -f infra/compose.yaml up -d`
 
 `npm run dev`
+
+### Opa, nós comitamos o arquivo `.env`- e agora?
+
+Na verdade a doc da vercel orienta a commitar mesmo, enquanto a doc do package .env considera errado!
+De qualquer forma, commitar o `.env` serve para informar os defaults dos valores, até porque no ambiente de produção, leia-se vercel, a plataforma injeta as env vars no `process.env` quando nós cadastramos via inteface web e isso tem precedência.
+Mas fica mais semântico usar uma variação do `.env` chamada `.env.development` que foi feito justamente para isso.
+
+Então, vamos renomear o arquivo commitado usando `git mv`
+
+`git mv .env .env.development`
+
+e renomear no meu `compose.yaml`
