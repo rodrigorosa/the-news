@@ -621,3 +621,10 @@ Então criamos na raiz do projeto o arquivo `jsconfig.json` com o conteúdo:
   }
 }
 ```
+
+PS: no next, por default, já reconhece o caminho absoluto se ele começar com `/` mas isso depende do node ter sido iniciado como `run dev` para usar como base path do arquivo. Em prod pode acontecer algo diferente, então via de regra o mais seguro é configurar o `jsconfig.json` mesmo.
+
+### Adicionando scripts para iniciar o serviço com o container de banco junto
+
+PS: fuzzy search (o control P) no VS Code permite procurar pelo bloco dentro arquivo!
+`Control P e digita pack (de package) e @script`
