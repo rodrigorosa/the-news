@@ -628,3 +628,5 @@ PS: no next, por default, já reconhece o caminho absoluto se ele começar com `
 
 PS: fuzzy search (o control P) no VS Code permite procurar pelo bloco dentro arquivo!
 `Control P e digita pack (de package) e @script`
+
+## Finalizar o endpoint de /status
