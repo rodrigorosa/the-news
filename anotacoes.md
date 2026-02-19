@@ -630,3 +630,19 @@ PS: fuzzy search (o control P) no VS Code permite procurar pelo bloco dentro arq
 `Control P e digita pack (de package) e @script`
 
 ## Finalizar o endpoint de /status
+
+## Análise de Erros
+
+- Passo 1 é sempre isolar o erro!
+
+### Erro intermitente vs Erro permanente
+
+### Análise de Logs
+
+A Origem Marítima do termo "log"
+
+Antigamente, os marinheiros mediam a velocidade de seus navios usando um "chip log" — um pedaço de madeira (em inglês, log) amarrado a uma corda com nós. Ao lançar a madeira ao mar, eles contavam quantos nós passavam pelas mãos em um intervalo de tempo (daí o termo "nós" para velocidade náutica).
+
+Os registros desses dados eram anotados diariamente em um livro chamado logbook (diário de bordo). Com o tempo, o termo passou a significar qualquer registro cronológico de eventos.
+
+Arquivos de Log: São os descendentes digitais dos antigos diários de bordo, armazenando erros, acessos e operações realizadas por um software ou sistema operacional.
