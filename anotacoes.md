@@ -646,3 +646,10 @@ Antigamente, os marinheiros mediam a velocidade de seus navios usando um "chip l
 Os registros desses dados eram anotados diariamente em um livro chamado logbook (diário de bordo). Com o tempo, o termo passou a significar qualquer registro cronológico de eventos.
 
 Arquivos de Log: São os descendentes digitais dos antigos diários de bordo, armazenando erros, acessos e operações realizadas por um software ou sistema operacional.
+
+### Configuração de banco de dados, na verdade de provedor de postgres, externos:
+
+- ElephantSQL (descontinuado)
+- Supabase (requer usar pool pq conexão direta não suporta ipv4)
+- Neon
+- Digital Ocean
