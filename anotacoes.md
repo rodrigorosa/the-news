@@ -653,3 +653,7 @@ Arquivos de Log: São os descendentes digitais dos antigos diários de bordo, ar
 - Supabase (requer usar pool pq conexão direta não suporta ipv4)
 - Neon
 - Digital Ocean
+
+A conexão no Supabase funcionou somente usando pool, que habilita SSL.
+A conexão com Neon precisou da config `{ rejectUnauthorized: false }`.
+A conexão com Digital Ocean precisou baixar o certificado da DO e adicionar como var de ambiente POSTGRES_CA.
