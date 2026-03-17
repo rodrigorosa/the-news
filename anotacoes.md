@@ -657,3 +657,47 @@ Arquivos de Log: São os descendentes digitais dos antigos diários de bordo, ar
 A conexão no Supabase funcionou somente usando pool, que habilita SSL.
 A conexão com Neon precisou da config `{ rejectUnauthorized: false }`.
 A conexão com Digital Ocean precisou baixar o certificado da DO e adicionar como var de ambiente POSTGRES_CA.
+
+## Migrations
+
+### Executar migrations por linha de comando
+
+De uma forma geral, se usarmos ORM no projeto, o mais óbvio seria utilizar algo como `sequelize` que tem ORM e migrations.
+Mas como nesse projeto foi optado por usar SQL na unha, precisamos de algo somente para migrations agora, e a opção foi o pacote `node-pg-migrate` que é bem específico para postgres.
+
+- Instalar o pacote
+
+`npm install node-pg-migrate@6.2.2`
+
+- Adicionar novos scripts para criar e executar migrações no package.json
+
+```
+"migration:create": "node-pg-migrate --migrations-dir infra/migrations create",
+"migration:up": "node-pg-migrate --migrations-dir infra/migrations up"
+```
+
+Ao executar `npm run migration:create first migration test` vai criar o arquivo em `infra/migrations` iniciando com o unix timestamp, o que faz sentido uma vez que as migrations são executadas em ordem. O conteúdo é:
+
+```
+exports.shorthands = undefined;
+
+exports.up = pgm => {};
+
+exports.down = pgm => {};
+```
+
+Mas para executar o node-pg-migrate é necessário passar para ele as credenciais de banco de dados. Segundo a doc ele já sabe usar as vars do .env para obter a connection url - para deixar isso mais organizado, vamos instalar o package `dotenv`
+
+`npm install dotenv@16.4.4`
+
+E no script de execução vamos adicionar o flag para apontar para o arquivo .env, uma vez que usamos um nome alternativo:
+
+`migration:up": "node-pg-migrate --migrations-dir infra/migrations --envPath .env.development up`
+
+E agora vamos adicionar a env var DATABASE_URL (no formato `postgres://user:password@host:port/database`) ao .env.development
+
+```
+DATABASE_URL=postgres://local_user:local_password@localhost:5432/local_db
+```
+
+E pronto! Ao executar o script `npm run migration:up` o package consegue ler o valor do .env e executar a migration, adicionando a tabela pgmigrations que ela já foi executada!
