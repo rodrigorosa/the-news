@@ -701,3 +701,14 @@ DATABASE_URL=postgres://local_user:local_password@localhost:5432/local_db
 ```
 
 E pronto! Ao executar o script `npm run migration:up` o package consegue ler o valor do .env e executar a migration, adicionando a tabela pgmigrations que ela já foi executada!
+
+### Criando migrations e testes
+
+- Criamos `pages/api/v1/migrations` e o teste.
+- GET vai retornar o dry run (modo simulação, retorna o que seria executado)
+- POST deve efetivamente executar as migrations (live run)
+- Usamos o `migrationRunner` direto no controller, tem que configurar
+
+PS: desmarquei a opção `compact folders` nas settings do vs code!
+
+Rollback x Rollforward
