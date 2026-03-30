@@ -712,3 +712,21 @@ E pronto! Ao executar o script `npm run migration:up` o package consegue ler o v
 PS: desmarquei a opção `compact folders` nas settings do vs code!
 
 Rollback x Rollforward
+
+## Fazendo o jest transpilar arquivos em ESM
+
+- Precisamos que o jest execute os testes de forma serial, por causa da limpeza do banco, isso é feito no package.json
+
+```
+    "test": "jest --runInBand",
+    "test:watch": "jest --watch --runInBand",
+    "test:watchAll": "jest --watchAll --runInBand",
+```
+
+- Agora precisamos efetivamente limpar o banco de dados e para isso precisamos importar o database para o teste e executar a query que limpa, entrentanto diferente do next.js que já faz transpilação para ESM, o jest é mais antigo e não suporta `import/export` do ES Modules(ESM), somente CommonJS (CJS) com `require()` - além disso o next.js tb lê o .env e injeta no process.env, o jest não faz isso... ah, e ele tb não entende absolutes imports configurados com o jsconfig.json.
+- Mas podemos fazer um trick! Vamos criar um arquivo jest.config.js na raiz do projeto e fazer umas alterações, como por exemplo importar um módulo do next.js chamado `next/jest` que vai compartilhar esse comportamento. Foi bastante chato porque por padrão o next não carrega as vars de ambiente de development quando estamos no teste. Eu resolvi clonando o `.env.development` para `.env.test` mas por algum motivo o Filipe preferiu fazer uma gambiarra infernal e usando o module dotenv forçar a carga do `.env.development` 🤨
+
+## Como fazer concatenação em `.env` ?
+
+- Precisamos do pacote adiciona dotenv-expand!
+  `npm install dotenv-expand@11.0.6`
