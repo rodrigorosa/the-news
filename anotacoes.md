@@ -730,3 +730,24 @@ Rollback x Rollforward
 
 - Precisamos do pacote adiciona dotenv-expand!
   `npm install dotenv-expand@11.0.6`
+
+## Git - Branches
+
+`git branch`
+`git status`
+`git branch nova-branch`
+`git checkout nova-branch`
+
+1 Nivel: copia do projeto
+2 Nivel: reaproveita os blobs dos commits, ou seja, 'duplica a árvore de ponteiros' mas aponta para os blobs existentes
+3 Nível: commit é um apontamento para uma árvore que aponta para blobs, o main é uma tag para um commit ou um atalho, assim como o HEAD aponta para o commit da branch atual
+
+`cat .git/HEAD`
+`ls -l .git/refs/heads`
+
+`git switch main`
+
+## Homologação
+
+A Vercel já faz automaticamente o deploy em `Produção` quando fazemos um `git push` na branch `main` usando com o environment `production`
+e um deploy em `Homologação` quando fazemos um `git push` em qualquer outra branch usando o environment `preview`. Ou seja, é só uma questão de ver as vars de ambiente configuradas para a homologação.
