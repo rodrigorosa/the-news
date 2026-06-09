@@ -751,3 +751,9 @@ Rollback x Rollforward
 
 A Vercel já faz automaticamente o deploy em `Produção` quando fazemos um `git push` na branch `main` usando com o environment `production`
 e um deploy em `Homologação` quando fazemos um `git push` em qualquer outra branch usando o environment `preview`. Ou seja, é só uma questão de ver as vars de ambiente configuradas para a homologação.
+
+Para isso vamos criar um novo database, para usar como homologação e vamos usar o Neon Database. No mesmo projeto existente `https://console.neon.tech/app/org-old-pond-06959935/projects` vamos adicionar um database.
+
+### Formatando json direto no terminal
+
+`curl -s https://the-news-rderobsz0-rodrigocrosa-gmailcoms-projects.vercel.app/api/v1/status | python3 -m json.tool`
